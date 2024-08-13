@@ -1,9 +1,9 @@
-const socket = new WebSocket('ws://localhost:8080'); // Ensure this matches your server address
+const socket = new WebSocket('wss://blessed-desk-ccf349152c.strapiapp.com:8080');
 
 const setupWebSocket = (onMessageCallback) => {
     socket.onopen = () => {
         console.log('Connected to WebSocket server');
-        // Optionally send a message to test
+        
         socket.send('Hello Server');
     };
 
@@ -20,7 +20,7 @@ const setupWebSocket = (onMessageCallback) => {
 
     socket.onclose = () => {
         console.log('WebSocket connection closed');
-        // Optionally, you might want to attempt to reconnect here
+        
     };
 
     return {

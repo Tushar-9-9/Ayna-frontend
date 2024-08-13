@@ -10,7 +10,7 @@ function Login() {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('http://localhost:1337/api/auth/local', {
+      const response = await fetch('https://blessed-desk-ccf349152c.strapiapp.com/api/auth/local', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ identifier: email, password }),

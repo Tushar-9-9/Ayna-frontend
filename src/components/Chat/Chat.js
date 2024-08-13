@@ -1,7 +1,8 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import './Chat.css';
 import Logout from '../Logout';
+
+const WS_URL = 'wss://blessed-desk-ccf349152c.strapiapp.com:8080';
 
 const Chat = () => {
     const [messages, setMessages] = useState([]);
@@ -9,8 +10,7 @@ const Chat = () => {
     const socketRef = useRef(null);
 
     useEffect(() => {
-        
-        socketRef.current = new WebSocket('ws://localhost:8080');
+        socketRef.current = new WebSocket(WS_URL);
 
         socketRef.current.onopen = () => {
             console.log('Connected to WebSocket server');
@@ -54,7 +54,7 @@ const Chat = () => {
     return (
         <div className="chat-container">
             <div className="chat-header">
-                <img src="../../img/getayna_logo.jpeg" className="profile-image" />
+                <img src="../../img/getayna_logo.jpeg" className="profile-image" alt="Profile" />
                 <h2>Server</h2>
                 <Logout className="logout-button" />
             </div>
